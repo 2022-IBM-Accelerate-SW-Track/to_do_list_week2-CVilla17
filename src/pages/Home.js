@@ -24,9 +24,23 @@ class Home extends Component {
     if (this.state.todos.find((t) => t.content === todo.content)) {
       let existing = this.state.todos.find((t) => t.content === todo.content);
       console.log(existing);
-      alert(
-        `The task "${todo.content}" already exists, it was created on ${existing.date}`
-      );
+
+      if (
+        window.confirm(
+          `The task "${todo.content}" already exists, it was created on ${existing.date}.\nAdd it anyway?`
+        )
+      ) {
+        let new_list = [...this.state.todos, todo];
+        this.setState({
+          todos: new_list,
+        });
+      } else {
+        return;
+      }
+
+      // alert(
+      //   `The task "${todo.content}" already exists, it was created on ${existing.date}`
+      // );
     } else {
       let new_list = [...this.state.todos, todo];
       this.setState({
