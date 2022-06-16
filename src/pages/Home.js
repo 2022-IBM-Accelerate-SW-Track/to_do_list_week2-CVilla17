@@ -21,11 +21,20 @@ class Home extends Component {
     // dealing with a larger data sensitive project.
     todo.id = Math.random();
     // Create a array that contains the current array and the new todo item
-    let new_list = [...this.state.todos, todo];
+    if (this.state.todos.find((t) => t.content === todo.content)) {
+      let existing = this.state.todos.find((t) => t.content === todo.content);
+      console.log(existing);
+      alert(
+        `The task "${todo.content}" already exists, it was created on ${existing.date}`
+      );
+    } else {
+      let new_list = [...this.state.todos, todo];
+      this.setState({
+        todos: new_list,
+      });
+    }
+
     // Update the local state with the new array.
-    this.setState({
-      todos: new_list,
-    });
   };
   deleteTodo = (id) => {
     const todos = this.state.todos.filter((todo) => {
