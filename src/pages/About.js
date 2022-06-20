@@ -8,17 +8,15 @@ export default class About extends Component {
       <div>
         {/* <p>Design your About me page </p> */}
         <div class="split left">
-          <div className="centered">
-            <img
-              className="profile_image"
-              src={profile_pic}
-              alt="Profile Pic"
-            ></img>
-          </div>
+          <div className="name_title">Carlos Villa</div>
+          <img
+            className="profile_image"
+            src={profile_pic}
+            alt="Profile Pic"
+          ></img>
         </div>
         <div className="split right">
           <div className="centered">
-            <div className="name_title">Carlos Villa</div>
             <div className="brief_description">
               <div>Hi there and welcome!</div>
               <div>

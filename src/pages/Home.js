@@ -21,8 +21,10 @@ class Home extends Component {
     // dealing with a larger data sensitive project.
     todo.id = Math.random();
     // Create a array that contains the current array and the new todo item
-    if (this.state.todos.find((t) => t.content === todo.content)) {
-      let existing = this.state.todos.find((t) => t.content === todo.content);
+    if (this.state.todos.find((t) => t.content === todo.content.trim())) {
+      let existing = this.state.todos.find(
+        (t) => t.content === todo.content.trim()
+      );
       console.log(existing);
 
       if (
